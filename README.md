@@ -23,12 +23,12 @@ cmd_if → AXI4-Lite Master → AXI4-Lite Bus → AXI-to-APB Bridge → APB Bus 
 
 | Phase | Description | Result |
 |-------|-------------|--------|
-| 1 | AXI4-Lite Slave directed TB | ✅ 10/10 PASS |
-| 2+3 | AXI4-Lite UVM | ✅ 100% coverage, 0 errors |
-| 4 | Master+Slave directed TB | ✅ 46/46 PASS |
-| 5 | Full system directed TB | ✅ 33/33 PASS |
-| 6 | Full system UVM | ✅ 237 checks, 0 failures, 100% coverage |
-| 7 | Questa Formal | ✅ 15 properties PROVEN, 0 counterexamples |
+| 1 | AXI4-Lite Slave directed TB |  10/10 PASS |
+| 2+3 | AXI4-Lite UVM |  100% coverage, 0 errors |
+| 4 | Master+Slave directed TB |  46/46 PASS |
+| 5 | Full system directed TB |  33/33 PASS |
+| 6 | Full system UVM |  237 checks, 0 failures, 100% coverage |
+| 7 | Questa Formal |  15 properties PROVEN, 0 counterexamples |
 
 ---
 
@@ -398,8 +398,3 @@ system_full_test
 
 ---
 
-## Author
-
-[Your Name]
-[Your University]
-Summer 2026
