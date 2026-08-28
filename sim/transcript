@@ -1,0 +1,1055 @@
+# //  Questa Sim-64
+# //  Version 2026.1 linux_x86_64 Jan 25 2026
+# //
+# // Unpublished work. Copyright 2026 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+transcript to phase1_results.log
+# transcript: unknown argument: to
+do compile_slave_directed.do
+# /mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini
+# ** Warning: (vdel-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# QuestaSim-64 vmap 2026.1 Lib Mapping Utility 2026.01 Jan 25 2026
+# vmap -modelsimini questa.ini work work 
+# ** Warning: (vmap-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# ** Note: (vmap-220) 'questa.ini' is used as the ini file.
+# Modifying questa.ini
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:09:39 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../tb/axi4_lite_if.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling interface axi4_lite_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:09:40 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:09:40 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/axi4_lite_slave.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module axi4_lite_slave
+# 
+# Top level modules:
+# 	axi4_lite_slave
+# End time: 19:09:40 on Aug 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:09:41 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../tb/tb_top.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module tb_top
+# 
+# Top level modules:
+# 	tb_top
+# End time: 19:09:41 on Aug 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# ** Warning: (vsim-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# vsim -modelsimini questa.ini -sv_seed random -t 1ns work.tb_top 
+# Start time: 19:09:42 on Aug 28,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-220) 'questa.ini' is used as the ini file.
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "axi4_lite_slave(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# Loading sv_std.std
+# Loading work.tb_top(fast)
+# Loading work.axi4_lite_if(fast__1)
+# Loading work.axi4_lite_slave(fast)
+# Sv_Seed = 3241309774
+# ============================================
+#   AXI4-Lite Slave Directed Testbench
+# ============================================
+# 
+# --- TEST 1: Basic Write/Read-back ---
+# [PASS] T1: reg[0] read-back                          | got=0xdeadbeef
+# [PASS] T1: read resp OKAY                            | RESP=0b00
+# 
+# --- TEST 2: Register File Walk ---
+# [PASS] T2: reg[0] read-back                          | got=0xa0000000
+# [PASS] T2: reg[1] read-back                          | got=0xa0000001
+# [PASS] T2: reg[2] read-back                          | got=0xa0000002
+# [PASS] T2: reg[3] read-back                          | got=0xa0000003
+# [PASS] T2: reg[4] read-back                          | got=0xa0000004
+# [PASS] T2: reg[5] read-back                          | got=0xa0000005
+# [PASS] T2: reg[6] read-back                          | got=0xa0000006
+# [PASS] T2: reg[7] read-back                          | got=0xa0000007
+# [PASS] T2: reg[8] read-back                          | got=0xa0000008
+# [PASS] T2: reg[9] read-back                          | got=0xa0000009
+# [PASS] T2: reg[10] read-back                         | got=0xa000000a
+# [PASS] T2: reg[11] read-back                         | got=0xa000000b
+# [PASS] T2: reg[12] read-back                         | got=0xa000000c
+# [PASS] T2: reg[13] read-back                         | got=0xa000000d
+# [PASS] T2: reg[14] read-back                         | got=0xa000000e
+# [PASS] T2: reg[15] read-back                         | got=0xa000000f
+# 
+# --- TEST 3: Byte Strobe Partial Write ---
+# [PASS] T3: strobe [1:0] only                         | got=0xffff5678
+# [PASS] T3: strobe [3:2] only                         | got=0xaabbffff
+# 
+# --- TEST 4: BREADY Back-pressure ---
+# [PASS] T4: back-pressure write                       | got=0xcafef00d
+# 
+# --- TEST 5: RREADY Back-pressure ---
+# [PASS] T5: back-pressure read                        | got=0xbeefcafe
+# 
+# --- TEST 6: Out-of-Range -> DECERR ---
+# [PASS] T6: write DECERR                              | RESP=0b11
+# [PASS] T6: read DECERR                               | RESP=0b11
+# 
+# --- TEST 7: Unaligned Address -> DECERR ---
+# [PASS] T7: unaligned write DECERR                    | RESP=0b11
+# [PASS] T7: unaligned read DECERR                     | RESP=0b11
+# 
+# --- TEST 8: AW First, W Delayed ---
+# [PASS] T8: AW-first result                           | got=0xabcd1234
+# 
+# --- TEST 9: W First, AW Delayed ---
+# [PASS] T9: W-first result                            | got=0x5678dcba
+# 
+# --- TEST 10: Reset Recovery ---
+# [PASS] T10: post-reset reg[0]=0                      | got=0x00000000
+# [PASS] T10: post-reset OKAY                          | RESP=0b00
+# 
+# ============================================
+#   RESULTS: 30 PASSED | 0 FAILED
+# ============================================
+# 
+#   *** ALL TESTS PASSED — RTL is clean! ***
+# 
+# ** Note: $finish    : ../tb/tb_top.sv(364)
+#    Time: 2995 ns  Iteration: 1  Instance: /tb_top
+# 1
+# Break in Module tb_top at ../tb/tb_top.sv line 364
+# ** Error: could not find wave window
+# Error in macro ./compile_slave_directed.do line 43
+# could not find wave window
+#     while executing
+# "wave::zoomfull {*}$args"
+#     (procedure "::wave::zoom::full" line 2)
+#     invoked from within
+# "wave zoom full"
+do compile.do
+# reading /mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini
+# /mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini
+# ** Warning: (vdel-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is ahangal@grendel42.ece.ncsu.edu.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2026.1 Lib Mapping Utility 2026.01 Jan 25 2026
+# vmap -modelsimini questa.ini work work 
+# ** Warning: (vmap-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# ** Note: (vmap-220) 'questa.ini' is used as the ini file.
+# Modifying questa.ini
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:15:47 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../tb/axi4_lite_if.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling interface axi4_lite_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:15:48 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:15:48 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps "+incdir+../uvm" ../uvm/axi4_lite_pkg.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling package axi4_lite_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../uvm/axi4_lite_pkg.sv(9): Using implicit +incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:15:49 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:15:49 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/axi4_lite_slave.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module axi4_lite_slave
+# 
+# Top level modules:
+# 	axi4_lite_slave
+# End time: 19:15:50 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:15:50 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps "+incdir+../uvm" ../tb/tb_top_uvm.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module tb_top_uvm
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../tb/tb_top_uvm.sv(11): Using implicit +incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Importing package axi4_lite_pkg
+# 
+# Top level modules:
+# 	tb_top_uvm
+# End time: 19:15:51 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 19:16:35 on Aug 28,2026, Elapsed time: 0:06:53
+# Errors: 1, Warnings: 2
+# ** Note: (vsim-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# ** Warning: (vsim-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# vsim -modelsimini questa.ini -sv_seed random -t 1ns "+UVM_TESTNAME=axi4_lite_full_test" "+UVM_VERBOSITY=UVM_MEDIUM" work.tb_top_uvm 
+# Start time: 19:16:35 on Aug 28,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-220) 'questa.ini' is used as the ini file.
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "axi4_lite_slave(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# Loading sv_std.std
+# Loading work.axi4_lite_if(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.axi4_lite_pkg(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.tb_top_uvm(fast)
+# Loading work.axi4_lite_if(fast__2)
+# Loading work.axi4_lite_slave(fast)
+# Loading /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
+# Sv_Seed = 78776400
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test axi4_lite_full_test...
+# UVM_INFO ../uvm/axi4_lite_base_test.sv(20) @ 0: uvm_test_top [TEST] Build phase complete
+# UVM_INFO ../uvm/axi4_lite_env.sv(39) @ 0: uvm_test_top.env [ENV] Environment build complete
+# UVM_INFO ../uvm/axi4_lite_agent.sv(53) @ 0: uvm_test_top.env.agent [AGENT] Agent created in ACTIVE mode
+# UVM_INFO ../uvm/axi4_lite_scoreboard.sv(53) @ 0: uvm_test_top.env.scoreboard [SB] Scoreboard initialised — shadow reg file cleared
+# UVM_INFO ../uvm/axi4_lite_env.sv(52) @ 0: uvm_test_top.env [ENV] Analysis ports connected: agent -> scoreboard + coverage
+# UVM_INFO ../uvm/axi4_lite_full_test.sv(30) @ 0: uvm_test_top [TEST] === axi4_lite_full_test START ===
+# UVM_INFO ../uvm/axi4_lite_full_test.sv(34) @ 0: uvm_test_top [TEST] Step 1: Register walk
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(216) @ 0: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] === Register Walk Sequence START ===
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(218) @ 0: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Writing all registers...
+# UVM_INFO ../uvm/axi4_lite_monitor.sv(56) @ 55: uvm_test_top.env.agent.monitor [MON] Reset released — monitor active
+# UVM_INFO ../uvm/axi4_lite_driver.sv(47) @ 65: uvm_test_top.env.agent.driver [DRV] Reset released � driver entering main loop
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 115: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x00000000 data=0xa0000000 strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 165: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x00000004 data=0xa0000001 strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 215: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x00000008 data=0xa0000002 strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 265: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x0000000c data=0xa0000003 strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 315: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x00000010 data=0xa0000004 strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 365: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x00000014 data=0xa0000005 strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 415: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x00000018 data=0xa0000006 strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 465: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x0000001c data=0xa0000007 strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 515: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x00000020 data=0xa0000008 strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 565: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x00000024 data=0xa0000009 strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 615: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x00000028 data=0xa000000a strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 665: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x0000002c data=0xa000000b strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 715: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x00000030 data=0xa000000c strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 765: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x00000034 data=0xa000000d strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 815: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x00000038 data=0xa000000e strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 865: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Write: addr=0x0000003c data=0xa000000f strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(224) @ 865: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Reading back all registers...
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 915: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x00000000 rdata=0xa0000000 RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 965: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x00000004 rdata=0xa0000001 RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1015: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x00000008 rdata=0xa0000002 RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1065: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x0000000c rdata=0xa0000003 RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1115: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x00000010 rdata=0xa0000004 RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1165: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x00000014 rdata=0xa0000005 RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1215: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x00000018 rdata=0xa0000006 RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1265: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x0000001c rdata=0xa0000007 RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1315: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x00000020 rdata=0xa0000008 RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1365: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x00000024 rdata=0xa0000009 RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1415: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x00000028 rdata=0xa000000a RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1465: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x0000002c rdata=0xa000000b RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1515: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x00000030 rdata=0xa000000c RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1565: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x00000034 rdata=0xa000000d RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1615: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x00000038 rdata=0xa000000e RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1665: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] Read:  addr=0x0000003c rdata=0xa000000f RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(241) @ 1665: uvm_test_top.env.agent.sequencer@@reg_walk [SEQ] === Register Walk DONE  PASS=16  FAIL=0 ===
+# UVM_INFO ../uvm/axi4_lite_full_test.sv(40) @ 1665: uvm_test_top [TEST] Step 2: Byte strobe patterns
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(365) @ 1665: uvm_test_top.env.agent.sequencer@@strobe [SEQ] === Byte Strobe Coverage Sequence START ===
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 1715: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write: addr=0x00000000 data=0xffffffff strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(90) @ 1765: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write(raw): addr=0x00000000 data=0x12345678 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1815: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Read:  addr=0x00000000 rdata=0xffffff78 RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(431) @ 1815: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Strobe 0b0001 PASS  addr=0x00  got=0xffffff78  exp=0xffffff78
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 1865: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write: addr=0x00000004 data=0xffffffff strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(90) @ 1915: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write(raw): addr=0x00000004 data=0x12345678 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 1965: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Read:  addr=0x00000004 rdata=0xffff56ff RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(431) @ 1965: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Strobe 0b0010 PASS  addr=0x04  got=0xffff56ff  exp=0xffff56ff
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 2015: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write: addr=0x00000008 data=0xffffffff strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(90) @ 2065: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write(raw): addr=0x00000008 data=0x12345678 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 2115: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Read:  addr=0x00000008 rdata=0xff34ffff RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(431) @ 2115: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Strobe 0b0100 PASS  addr=0x08  got=0xff34ffff  exp=0xff34ffff
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 2165: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write: addr=0x0000000c data=0xffffffff strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(90) @ 2215: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write(raw): addr=0x0000000c data=0x12345678 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 2265: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Read:  addr=0x0000000c rdata=0x12ffffff RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(431) @ 2265: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Strobe 0b1000 PASS  addr=0x0c  got=0x12ffffff  exp=0x12ffffff
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 2315: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write: addr=0x00000010 data=0xffffffff strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(90) @ 2365: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write(raw): addr=0x00000010 data=0x12345678 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 2415: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Read:  addr=0x00000010 rdata=0xffff5678 RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(431) @ 2415: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Strobe 0b0011 PASS  addr=0x10  got=0xffff5678  exp=0xffff5678
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 2465: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write: addr=0x00000014 data=0xffffffff strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(90) @ 2515: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write(raw): addr=0x00000014 data=0x12345678 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 2565: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Read:  addr=0x00000014 rdata=0x1234ffff RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(431) @ 2565: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Strobe 0b1100 PASS  addr=0x14  got=0x1234ffff  exp=0x1234ffff
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(38) @ 2615: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write: addr=0x00000018 data=0xffffffff strb=0b1111 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(90) @ 2665: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Write(raw): addr=0x00000018 data=0x12345678 BRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(63) @ 2715: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Read:  addr=0x00000018 rdata=0x12345678 RRESP=0b00
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(431) @ 2715: uvm_test_top.env.agent.sequencer@@strobe [SEQ] Strobe 0b1111 PASS  addr=0x18  got=0x12345678  exp=0x12345678
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(389) @ 2715: uvm_test_top.env.agent.sequencer@@strobe [SEQ] === Byte Strobe Sequence DONE  PASS=7  FAIL=0 ===
+# UVM_INFO ../uvm/axi4_lite_full_test.sv(46) @ 2715: uvm_test_top [TEST] Step 3: Constrained-random (64 transactions)
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(264) @ 2715: uvm_test_top.env.agent.sequencer@@rand_seq [SEQ] === Random Sequence START  (64 transactions) ===
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(282) @ 5915: uvm_test_top.env.agent.sequencer@@rand_seq [SEQ] === Random Sequence DONE ===
+# UVM_INFO ../uvm/axi4_lite_full_test.sv(53) @ 5915: uvm_test_top [TEST] Step 4: Error injection
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(303) @ 5915: uvm_test_top.env.agent.sequencer@@err_seq [SEQ] === Error Injection Sequence START ===
+# UVM_INFO ../uvm/axi4_lite_scoreboard.sv(89) @ 5955: uvm_test_top.env.scoreboard [SB] WRITE DECERR  addr=0xffff0000  (shadow unchanged)
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(90) @ 5965: uvm_test_top.env.agent.sequencer@@err_seq [SEQ] Write(raw): addr=0xffff0000 data=0x0badbabe BRESP=0b11
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(308) @ 5965: uvm_test_top.env.agent.sequencer@@err_seq [SEQ] OOB write DECERR: correct
+# UVM_INFO ../uvm/axi4_lite_scoreboard.sv(128) @ 6005: uvm_test_top.env.scoreboard [SB] READ  DECERR  addr=0xffff0000  rdata=0x0 (correct)
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(113) @ 6015: uvm_test_top.env.agent.sequencer@@err_seq [SEQ] Read (raw): addr=0xffff0000 rdata=0x00000000 RRESP=0b11
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(315) @ 6015: uvm_test_top.env.agent.sequencer@@err_seq [SEQ] OOB read DECERR: correct
+# UVM_INFO ../uvm/axi4_lite_scoreboard.sv(89) @ 6055: uvm_test_top.env.scoreboard [SB] WRITE DECERR  addr=0x00000001  (shadow unchanged)
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(90) @ 6065: uvm_test_top.env.agent.sequencer@@err_seq [SEQ] Write(raw): addr=0x00000001 data=0x12345678 BRESP=0b11
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(322) @ 6065: uvm_test_top.env.agent.sequencer@@err_seq [SEQ] Unaligned write DECERR: correct
+# UVM_INFO ../uvm/axi4_lite_sequences.sv(326) @ 6065: uvm_test_top.env.agent.sequencer@@err_seq [SEQ] === Error Injection Sequence DONE ===
+# UVM_INFO ../uvm/axi4_lite_full_test.sv(57) @ 6065: uvm_test_top [TEST] === axi4_lite_full_test DONE ===
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 6065: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# ╔══════════════════════════════════════╗
+# ║       COVERAGE SUMMARY               ║
+# ╠══════════════════════════════════════╣
+# ║  Total Coverage  : 100.0%            ║
+# ║  RW Type         : 100.0%            ║
+# ║  Register Access : 100.0%            ║
+# ║  Strobe Patterns : 100.0%            ║
+# ║  Response Types  : 100.0%            ║
+# ║  RW x Register   : 100.0%            ║
+# ║  RW x Response   : 100.0%            ║
+# ╚══════════════════════════════════════╝
+# UVM_INFO ../uvm/axi4_lite_coverage.sv(126) @ 6065: uvm_test_top.env.coverage [COV] 100%% coverage achieved!
+# 
+# ╔══════════════════════════════════════╗
+# ║       SCOREBOARD SUMMARY             ║
+# ╠══════════════════════════════════════╣
+# ║  Writes OK     :   60                ║
+# ║  Writes DECERR :    2                ║
+# ║  Reads  PASS   :   57                ║
+# ║  Reads  FAIL   :    0                ║
+# ║  Total DECERR  :    3                ║
+# ╚══════════════════════════════════════╝
+# UVM_INFO ../uvm/axi4_lite_scoreboard.sv(150) @ 6065: uvm_test_top.env.scoreboard [SB] SCOREBOARD: ALL CHECKS PASSED
+# UVM_INFO ../uvm/axi4_lite_base_test.sv(37) @ 6065: uvm_test_top [TEST] *** TEST PASSED ***
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   99
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [AGENT]     1
+# [COV]     1
+# [DRV]     1
+# [ENV]     2
+# [MON]     1
+# [Questa UVM]     2
+# [RNTST]     1
+# [SB]     5
+# [SEQ]    76
+# [TEST]     8
+# [TEST_DONE]     1
+# ** Note: $finish    : /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 6065 ns  Iteration: 61  Instance: /tb_top_uvm
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+# 0 ns
+# 6368 ns
+do compile_master.do
+# reading /mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini
+# /mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini
+# ** Warning: (vdel-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt1".  Locker is ahangal@grendel42.ece.ncsu.edu.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2026.1 Lib Mapping Utility 2026.01 Jan 25 2026
+# vmap -modelsimini questa.ini work work 
+# ** Warning: (vmap-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# ** Note: (vmap-220) 'questa.ini' is used as the ini file.
+# Modifying questa.ini
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:19:23 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../tb/axi4_lite_if.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling interface axi4_lite_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:19:23 on Aug 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:19:23 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../tb/axi4_lite_cmd_if.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling interface axi4_lite_cmd_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:19:24 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:19:24 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/axi4_lite_slave.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module axi4_lite_slave
+# 
+# Top level modules:
+# 	axi4_lite_slave
+# End time: 19:19:25 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:19:25 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/axi4_lite_master.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module axi4_lite_master
+# 
+# Top level modules:
+# 	axi4_lite_master
+# End time: 19:19:25 on Aug 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:19:26 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/axi4_lite_top.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module axi4_lite_top
+# 
+# Top level modules:
+# 	axi4_lite_top
+# End time: 19:19:26 on Aug 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:19:27 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../tb/tb_top_master.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module tb_top_master
+# 
+# Top level modules:
+# 	tb_top_master
+# End time: 19:19:27 on Aug 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:20:02 on Aug 28,2026, Elapsed time: 0:03:27
+# Errors: 0, Warnings: 2
+# ** Note: (vsim-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# ** Warning: (vsim-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# vsim -modelsimini questa.ini -sv_seed random -t 1ns work.tb_top_master 
+# Start time: 19:20:02 on Aug 28,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-220) 'questa.ini' is used as the ini file.
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "axi4_lite_master(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "axi4_lite_slave(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# Loading sv_std.std
+# Loading work.tb_top_master(fast)
+# Loading work.axi4_lite_top(fast)
+# Loading work.axi4_lite_master(fast)
+# Loading work.axi4_lite_slave(fast)
+# Sv_Seed = 2366777329
+# ================================================
+#   AXI4-Lite Master+Slave � Directed Testbench
+# ================================================
+# 
+# --- TEST 1: Single Write/Read-back ---
+# [PASS] T1: reg[0] read-back                          got=0xdeadbeef
+# [PASS] T1: no error                                  got=0
+# 
+# --- TEST 2: Register Walk ---
+# [PASS] T2: reg[0]                                    got=0xa0000000
+# [PASS] T2: reg[1]                                    got=0xa0000001
+# [PASS] T2: reg[2]                                    got=0xa0000002
+# [PASS] T2: reg[3]                                    got=0xa0000003
+# [PASS] T2: reg[4]                                    got=0xa0000004
+# [PASS] T2: reg[5]                                    got=0xa0000005
+# [PASS] T2: reg[6]                                    got=0xa0000006
+# [PASS] T2: reg[7]                                    got=0xa0000007
+# [PASS] T2: reg[8]                                    got=0xa0000008
+# [PASS] T2: reg[9]                                    got=0xa0000009
+# [PASS] T2: reg[10]                                   got=0xa000000a
+# [PASS] T2: reg[11]                                   got=0xa000000b
+# [PASS] T2: reg[12]                                   got=0xa000000c
+# [PASS] T2: reg[13]                                   got=0xa000000d
+# [PASS] T2: reg[14]                                   got=0xa000000e
+# [PASS] T2: reg[15]                                   got=0xa000000f
+# 
+# --- TEST 3: RAW Data Integrity ---
+# [PASS] T3: RAW integrity                             got=0xcafebabe
+# 
+# --- TEST 4: Back-to-Back Writes ---
+# [PASS] T4: b2b write reg[0]                          got=0x11111111
+# [PASS] T4: b2b write reg[1]                          got=0x22222222
+# [PASS] T4: b2b write reg[2]                          got=0x33333333
+# 
+# --- TEST 5: Out-of-Range Address ---
+# [PASS] T5: OOB write error flag                      got=1
+# [PASS] T5: OOB read error flag                       got=1
+# [PASS] T5: OOB read data=0                           got=0x00000000
+# 
+# --- TEST 6: System-level Byte Strobe ---
+# [PASS] T6: strobe 0001 (byte 0 only)                 got=0xffffff78
+# [PASS] T6: strobe 1000 (byte 3 only)                 got=0x12ffffff
+# [PASS] T6: strobe 0011 (lower half)                  got=0xffff5678
+# [PASS] T6: strobe 1100 (upper half)                  got=0x1234ffff
+# 
+# --- TEST 7: Mixed Reads and Writes ---
+# [PASS] T7: alternating reg[0]                        got=0xaaaaaaaa
+# [PASS] T7: alternating reg[1]                        got=0x55555555
+# [PASS] T7: alternating reg[2]                        got=0xaaaaaaaa
+# [PASS] T7: alternating reg[3]                        got=0x55555555
+# [PASS] T7: alternating reg[4]                        got=0xaaaaaaaa
+# [PASS] T7: alternating reg[5]                        got=0x55555555
+# [PASS] T7: alternating reg[6]                        got=0xaaaaaaaa
+# [PASS] T7: alternating reg[7]                        got=0x55555555
+# [PASS] T7: alternating reg[8]                        got=0xaaaaaaaa
+# [PASS] T7: alternating reg[9]                        got=0x55555555
+# [PASS] T7: alternating reg[10]                       got=0xaaaaaaaa
+# [PASS] T7: alternating reg[11]                       got=0x55555555
+# [PASS] T7: alternating reg[12]                       got=0xaaaaaaaa
+# [PASS] T7: alternating reg[13]                       got=0x55555555
+# [PASS] T7: alternating reg[14]                       got=0xaaaaaaaa
+# [PASS] T7: alternating reg[15]                       got=0x55555555
+# 
+# --- TEST 8: Reset Recovery ---
+# [PASS] T8: post-reset reg[0]=0                       got=0x00000000
+# 
+# ================================================
+#   RESULTS: 46 PASSED | 0 FAILED
+# ================================================
+# 
+#   *** ALL TESTS PASSED � Master RTL is clean! ***
+# 
+# ** Note: $finish    : ../tb/tb_top_master.sv(349)
+#    Time: 6465 ns  Iteration: 1  Instance: /tb_top_master
+# 1
+# Break in Module tb_top_master at ../tb/tb_top_master.sv line 349
+# 0 ns
+# 6788 ns
+do compile_system.do
+# reading /mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini
+# /mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini
+# ** Warning: (vdel-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is ahangal@grendel42.ece.ncsu.edu.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2026.1 Lib Mapping Utility 2026.01 Jan 25 2026
+# vmap -modelsimini questa.ini work work 
+# ** Warning: (vmap-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# ** Note: (vmap-220) 'questa.ini' is used as the ini file.
+# Modifying questa.ini
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:22:13 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../tb/axi4_lite_if.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling interface axi4_lite_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:22:14 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:22:14 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../tb/apb_if.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling interface apb_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:22:14 on Aug 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:22:15 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../tb/axi4_lite_cmd_if.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling interface axi4_lite_cmd_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:22:15 on Aug 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:22:15 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/axi4_lite_slave.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module axi4_lite_slave
+# 
+# Top level modules:
+# 	axi4_lite_slave
+# End time: 19:22:16 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:22:16 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/axi4_lite_master.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module axi4_lite_master
+# 
+# Top level modules:
+# 	axi4_lite_master
+# End time: 19:22:17 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:22:17 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/axi4_lite_to_apb.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module axi4_lite_to_apb
+# 
+# Top level modules:
+# 	axi4_lite_to_apb
+# End time: 19:22:18 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:22:18 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/apb_slave.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module apb_slave
+# 
+# Top level modules:
+# 	apb_slave
+# End time: 19:22:18 on Aug 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:22:18 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/system_top.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module system_top
+# 
+# Top level modules:
+# 	system_top
+# End time: 19:22:19 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:22:19 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../tb/tb_top_system.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module tb_top_system
+# 
+# Top level modules:
+# 	tb_top_system
+# End time: 19:22:20 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 19:22:55 on Aug 28,2026, Elapsed time: 0:02:53
+# Errors: 0, Warnings: 2
+# ** Note: (vsim-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# ** Warning: (vsim-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# vsim -modelsimini questa.ini -sv_seed random -t 1ns work.tb_top_system 
+# Start time: 19:22:55 on Aug 28,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-220) 'questa.ini' is used as the ini file.
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "axi4_lite_master(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "axi4_lite_to_apb(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# Loading sv_std.std
+# Loading work.tb_top_system(fast)
+# Loading work.system_top(fast)
+# Loading work.axi4_lite_master(fast)
+# Loading work.axi4_lite_to_apb(fast)
+# Loading work.apb_slave(fast)
+# Sv_Seed = 1119083878
+# ==============================================
+#   System: Master -> Bridge -> APB Slave
+#   Wait States = 2
+# ==============================================
+# 
+# --- TEST 1: Write/Read Through Bridge ---
+# [PASS] T1: bridge write/read                         got=0xdeadbeef
+# [PASS] T1: no error                                  got=0
+# 
+# --- TEST 2: APB Register Walk ---
+# [PASS] T2: APB reg[0]                                got=0xb0000000
+# [PASS] T2: APB reg[1]                                got=0xb0000001
+# [PASS] T2: APB reg[2]                                got=0xb0000002
+# [PASS] T2: APB reg[3]                                got=0xb0000003
+# [PASS] T2: APB reg[4]                                got=0xb0000004
+# [PASS] T2: APB reg[5]                                got=0xb0000005
+# [PASS] T2: APB reg[6]                                got=0xb0000006
+# [PASS] T2: APB reg[7]                                got=0xb0000007
+# [PASS] T2: APB reg[8]                                got=0xb0000008
+# [PASS] T2: APB reg[9]                                got=0xb0000009
+# [PASS] T2: APB reg[10]                               got=0xb000000a
+# [PASS] T2: APB reg[11]                               got=0xb000000b
+# [PASS] T2: APB reg[12]                               got=0xb000000c
+# [PASS] T2: APB reg[13]                               got=0xb000000d
+# [PASS] T2: APB reg[14]                               got=0xb000000e
+# [PASS] T2: APB reg[15]                               got=0xb000000f
+# 
+# --- TEST 3: RAW Data Integrity ---
+# [PASS] T3: RAW through bridge                        got=0xcafef00d
+# 
+# --- TEST 4: Byte Strobes End-to-End ---
+# [PASS] T4: strobe 0001 (byte 0)                      got=0xffffff78
+# [PASS] T4: strobe 1100 (upper)                       got=0x1234ffff
+# 
+# --- TEST 5: Error Propagation (PSLVERR→SLVERR) ---
+# [PASS] T5: OOB write → error                       got=1
+# [PASS] T5: OOB read → error                        got=1
+# [PASS] T5: OOB read data=0                           got=0x00000000
+# 
+# --- TEST 6: Wait States (WAIT_STATES=2) ---
+# [PASS] T6: write with wait states                    got=0xabcd1234
+# [PASS] T6: no error on wait                          got=0
+# 
+# --- TEST 7: Back-to-Back Writes ---
+# [PASS] T7: b2b reg[0]                                got=0xaaaa0000
+# [PASS] T7: b2b reg[1]                                got=0xbbbb0001
+# [PASS] T7: b2b reg[2]                                got=0xcccc0002
+# 
+# --- TEST 8: Mixed Reads and Writes ---
+# [PASS] T8: write then read                           got=0x11111111
+# [PASS] T8: overwrite then read                       got=0x22222222
+# 
+# --- TEST 9: Reset Recovery ---
+# [PASS] T9: post-reset reg[0]=0                       got=0x00000000
+# [PASS] T9: no error after reset                      got=0
+# 
+# ==============================================
+#   RESULTS: 33 PASSED | 0 FAILED
+# ==============================================
+# 
+#   *** ALL TESTS PASSED — Bridge is clean! ***
+# 
+# ** Note: $finish    : ../tb/tb_top_system.sv(297)
+#    Time: 7705 ns  Iteration: 1  Instance: /tb_top_system
+# 1
+# Break in Module tb_top_system at ../tb/tb_top_system.sv line 297
+# 0 ns
+# 8090 ns
+do compile_system_uvm.do
+# reading /mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini
+# /mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini
+# ** Warning: (vdel-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# ** Warning: (vdel-134) Unable to remove locked optimized design "_opt1".  Locker is ahangal@grendel42.ece.ncsu.edu.
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2026.1 Lib Mapping Utility 2026.01 Jan 25 2026
+# vmap -modelsimini questa.ini work work 
+# ** Warning: (vmap-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# ** Note: (vmap-220) 'questa.ini' is used as the ini file.
+# Modifying questa.ini
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:24:53 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../tb/axi4_lite_if.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling interface axi4_lite_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:24:54 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:24:54 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../tb/apb_if.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling interface apb_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:24:55 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:24:55 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../tb/axi4_lite_cmd_if.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling interface axi4_lite_cmd_if
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:24:55 on Aug 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:24:56 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps "+incdir+../uvm" ../uvm/system_pkg.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling package system_pkg
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../uvm/system_pkg.sv(13): Using implicit +incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 19:24:57 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:24:57 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/axi4_lite_slave.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module axi4_lite_slave
+# 
+# Top level modules:
+# 	axi4_lite_slave
+# End time: 19:24:57 on Aug 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:24:58 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/axi4_lite_master.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module axi4_lite_master
+# 
+# Top level modules:
+# 	axi4_lite_master
+# End time: 19:24:58 on Aug 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:24:59 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/axi4_lite_to_apb.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module axi4_lite_to_apb
+# 
+# Top level modules:
+# 	axi4_lite_to_apb
+# End time: 19:24:59 on Aug 28,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:24:59 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/apb_slave.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module apb_slave
+# 
+# Top level modules:
+# 	apb_slave
+# End time: 19:25:00 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:25:00 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps ../rtl/system_top.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module system_top
+# 
+# Top level modules:
+# 	system_top
+# End time: 19:25:01 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2026.1 Compiler 2026.01 Jan 25 2026
+# Start time: 19:25:01 on Aug 28,2026
+# vlog -reportprogress 300 -sv -work work "+acc" -timescale 1ns/1ps "+incdir+../uvm" ../tb/tb_top_system_uvm.sv 
+# ** Note: (vlog-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# -- Compiling module tb_top_system_uvm
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# ** Note: (vlog-2286) ../tb/tb_top_system_uvm.sv(15): Using implicit +incdir+/mnt/apps/public/COE/mg_apps/questa2026.1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Importing package system_pkg
+# 
+# Top level modules:
+# 	tb_top_system_uvm
+# End time: 19:25:02 on Aug 28,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 19:25:39 on Aug 28,2026, Elapsed time: 0:02:44
+# Errors: 0, Warnings: 2
+# ** Note: (vsim-220) '/mnt/ncsudrive/a/ahangal/summer_2026/sim/questa.ini' is used as the ini file.
+# ** Warning: (vsim-222) -modelsimini will be deprecated in future releases. Please use -ini instead.
+# vsim -modelsimini questa.ini -sv_seed random -t 1ns "+UVM_TESTNAME=system_full_test" "+UVM_VERBOSITY=UVM_MEDIUM" work.tb_top_system_uvm 
+# Start time: 19:25:39 on Aug 28,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-220) 'questa.ini' is used as the ini file.
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vopt-143) Recognized 1 FSM in module "axi4_lite_master(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "axi4_lite_to_apb(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# Loading sv_std.std
+# Loading work.axi4_lite_cmd_if(fast)
+# Loading work.apb_if(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.system_pkg(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.tb_top_system_uvm(fast)
+# Loading work.axi4_lite_cmd_if(fast__2)
+# Loading work.apb_if(fast__2)
+# Loading work.system_top(fast)
+# Loading work.axi4_lite_master(fast)
+# Loading work.axi4_lite_to_apb(fast)
+# Loading work.apb_slave(fast)
+# Loading /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
+# Sv_Seed = 30657320
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test system_full_test...
+# UVM_INFO ../uvm/system_tests.sv(31) @ 0: uvm_test_top [TEST] system_base_test build complete
+# UVM_INFO ../uvm/system_env.sv(44) @ 0: uvm_test_top.env [SYS_ENV] System environment built
+# UVM_INFO ../uvm/apb_agent.sv(22) @ 0: uvm_test_top.env.apb_agnt [APB_AGENT] Passive APB agent created
+# UVM_INFO ../uvm/cmd_agent.sv(31) @ 0: uvm_test_top.env.cmd_agnt [CMD_AGENT] Active mode
+# UVM_INFO ../uvm/e2e_scoreboard.sv(65) @ 0: uvm_test_top.env.scoreboard [E2E_SB] Scoreboard initialised
+# UVM_INFO ../uvm/system_env.sv(55) @ 0: uvm_test_top.env [SYS_ENV] Analysis ports connected
+# UVM_INFO ../uvm/system_tests.sv(104) @ 0: uvm_test_top [TEST] === system_full_test START ===
+# UVM_INFO ../uvm/system_tests.sv(107) @ 0: uvm_test_top [TEST] Step 1: Register walk
+# UVM_INFO ../uvm/system_sequences.sv(141) @ 0: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] === System Register Walk START ===
+# UVM_INFO ../uvm/system_sequences.sv(144) @ 0: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Writing all APB registers...
+# UVM_INFO ../uvm/cmd_monitor.sv(31) @ 55: uvm_test_top.env.cmd_agnt.monitor [CMD_MON] Monitor active
+# UVM_INFO ../uvm/apb_monitor.sv(34) @ 55: uvm_test_top.env.apb_agnt.monitor [APB_MON] APB monitor active
+# UVM_INFO ../uvm/cmd_driver.sv(31) @ 65: uvm_test_top.env.cmd_agnt.driver [CMD_DRV] Reset released — driver ready
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 195: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x00000000 data=0xc0000000 strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 325: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x00000004 data=0xc0000001 strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 455: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x00000008 data=0xc0000002 strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 585: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x0000000c data=0xc0000003 strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 715: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x00000010 data=0xc0000004 strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 845: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x00000014 data=0xc0000005 strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 975: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x00000018 data=0xc0000006 strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 1105: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x0000001c data=0xc0000007 strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 1235: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x00000020 data=0xc0000008 strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 1365: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x00000024 data=0xc0000009 strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 1495: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x00000028 data=0xc000000a strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 1625: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x0000002c data=0xc000000b strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 1755: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x00000030 data=0xc000000c strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 1885: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x00000034 data=0xc000000d strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 2015: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x00000038 data=0xc000000e strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 2145: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Write: addr=0x0000003c data=0xc000000f strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(151) @ 2145: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Reading back all APB registers...
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 2275: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x00000000 rdata=0xc0000000 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 2405: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x00000004 rdata=0xc0000001 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 2535: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x00000008 rdata=0xc0000002 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 2665: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x0000000c rdata=0xc0000003 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 2795: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x00000010 rdata=0xc0000004 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 2925: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x00000014 rdata=0xc0000005 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 3055: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x00000018 rdata=0xc0000006 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 3185: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x0000001c rdata=0xc0000007 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 3315: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x00000020 rdata=0xc0000008 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 3445: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x00000024 rdata=0xc0000009 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 3575: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x00000028 rdata=0xc000000a err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 3705: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x0000002c rdata=0xc000000b err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 3835: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x00000030 rdata=0xc000000c err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 3965: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x00000034 rdata=0xc000000d err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 4095: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x00000038 rdata=0xc000000e err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 4225: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] Read:  addr=0x0000003c rdata=0xc000000f err=0
+# UVM_INFO ../uvm/system_sequences.sv(167) @ 4225: uvm_test_top.env.cmd_agnt.sequencer@@reg_walk [SEQ] === Register Walk DONE PASS=16 FAIL=0 ===
+# UVM_INFO ../uvm/system_tests.sv(112) @ 4225: uvm_test_top [TEST] Step 2: Byte strobe patterns
+# UVM_INFO ../uvm/system_sequences.sv(270) @ 4225: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] === Byte Strobe Sequence START ===
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 4355: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write: addr=0x00000000 data=0xffffffff strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(90) @ 4485: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write(raw): addr=0x00000000 data=0x12345678 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 4615: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Read:  addr=0x00000000 rdata=0xffffff78 err=0
+# UVM_INFO ../uvm/system_sequences.sv(304) @ 4615: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Strobe 0b0001 PASS addr=0x00 got=0xffffff78
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 4745: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write: addr=0x00000004 data=0xffffffff strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(90) @ 4875: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write(raw): addr=0x00000004 data=0x12345678 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 5005: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Read:  addr=0x00000004 rdata=0xffff56ff err=0
+# UVM_INFO ../uvm/system_sequences.sv(304) @ 5005: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Strobe 0b0010 PASS addr=0x04 got=0xffff56ff
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 5135: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write: addr=0x00000008 data=0xffffffff strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(90) @ 5265: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write(raw): addr=0x00000008 data=0x12345678 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 5395: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Read:  addr=0x00000008 rdata=0xff34ffff err=0
+# UVM_INFO ../uvm/system_sequences.sv(304) @ 5395: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Strobe 0b0100 PASS addr=0x08 got=0xff34ffff
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 5525: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write: addr=0x0000000c data=0xffffffff strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(90) @ 5655: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write(raw): addr=0x0000000c data=0x12345678 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 5785: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Read:  addr=0x0000000c rdata=0x12ffffff err=0
+# UVM_INFO ../uvm/system_sequences.sv(304) @ 5785: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Strobe 0b1000 PASS addr=0x0c got=0x12ffffff
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 5915: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write: addr=0x00000010 data=0xffffffff strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(90) @ 6045: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write(raw): addr=0x00000010 data=0x12345678 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 6175: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Read:  addr=0x00000010 rdata=0xffff5678 err=0
+# UVM_INFO ../uvm/system_sequences.sv(304) @ 6175: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Strobe 0b0011 PASS addr=0x10 got=0xffff5678
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 6305: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write: addr=0x00000014 data=0xffffffff strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(90) @ 6435: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write(raw): addr=0x00000014 data=0x12345678 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 6565: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Read:  addr=0x00000014 rdata=0x1234ffff err=0
+# UVM_INFO ../uvm/system_sequences.sv(304) @ 6565: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Strobe 0b1100 PASS addr=0x14 got=0x1234ffff
+# UVM_INFO ../uvm/system_sequences.sv(40) @ 6695: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write: addr=0x00000018 data=0xffffffff strb=0b1111 err=0
+# UVM_INFO ../uvm/system_sequences.sv(90) @ 6825: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Write(raw): addr=0x00000018 data=0x12345678 err=0
+# UVM_INFO ../uvm/system_sequences.sv(64) @ 6955: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Read:  addr=0x00000018 rdata=0x12345678 err=0
+# UVM_INFO ../uvm/system_sequences.sv(304) @ 6955: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] Strobe 0b1111 PASS addr=0x18 got=0x12345678
+# UVM_INFO ../uvm/system_sequences.sv(278) @ 6955: uvm_test_top.env.cmd_agnt.sequencer@@strobe [SEQ] === Byte Strobe Sequence DONE ===
+# UVM_INFO ../uvm/system_tests.sv(117) @ 6955: uvm_test_top [TEST] Step 3: Constrained-random (64 txns)
+# UVM_INFO ../uvm/system_sequences.sv(190) @ 6955: uvm_test_top.env.cmd_agnt.sequencer@@rand_seq [SEQ] === Random Sequence START (64 txns) ===
+# UVM_INFO ../uvm/system_sequences.sv(208) @ 15275: uvm_test_top.env.cmd_agnt.sequencer@@rand_seq [SEQ] === Random Sequence DONE ===
+# UVM_INFO ../uvm/system_tests.sv(123) @ 15275: uvm_test_top [TEST] Step 4: Error injection
+# UVM_INFO ../uvm/system_sequences.sv(230) @ 15275: uvm_test_top.env.cmd_agnt.sequencer@@err_seq [SEQ] === Error Injection Sequence START ===
+# UVM_INFO ../uvm/system_sequences.sv(90) @ 15405: uvm_test_top.env.cmd_agnt.sequencer@@err_seq [SEQ] Write(raw): addr=0xffff0000 data=0x0badbabe err=1
+# UVM_INFO ../uvm/system_sequences.sv(235) @ 15405: uvm_test_top.env.cmd_agnt.sequencer@@err_seq [SEQ] OOB write error propagated correctly
+# UVM_INFO ../uvm/system_sequences.sv(114) @ 15535: uvm_test_top.env.cmd_agnt.sequencer@@err_seq [SEQ] Read (raw): addr=0xffff0000 rdata=0x00000000 err=1
+# UVM_INFO ../uvm/system_sequences.sv(242) @ 15535: uvm_test_top.env.cmd_agnt.sequencer@@err_seq [SEQ] OOB read error propagated correctly
+# UVM_INFO ../uvm/system_sequences.sv(90) @ 15665: uvm_test_top.env.cmd_agnt.sequencer@@err_seq [SEQ] Write(raw): addr=0x00000001 data=0x12345678 err=1
+# UVM_INFO ../uvm/system_sequences.sv(249) @ 15665: uvm_test_top.env.cmd_agnt.sequencer@@err_seq [SEQ] Unaligned write error propagated correctly
+# UVM_INFO ../uvm/system_sequences.sv(253) @ 15665: uvm_test_top.env.cmd_agnt.sequencer@@err_seq [SEQ] === Error Injection Sequence DONE ===
+# UVM_INFO ../uvm/system_tests.sv(127) @ 15665: uvm_test_top [TEST] === system_full_test DONE ===
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 15665: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# ╔══════════════════════════════════════════╗
+# ║        SYSTEM COVERAGE SUMMARY           ║
+# ╠══════════════════════════════════════════╣
+# ║  Total Coverage   : 100.0%              ║
+# ║  RW Type          : 100.0%              ║
+# ║  Register Access  : 100.0%              ║
+# ║  Error (PSLVERR)  : 100.0%              ║
+# ║  Strobe Patterns  : 100.0%              ║
+# ║  RW x Register    : 100.0%              ║
+# ║  RW x Error       : 100.0%              ║
+# ╚══════════════════════════════════════════╝
+# UVM_INFO ../uvm/system_coverage.sv(114) @ 15665: uvm_test_top.env.coverage [SYS_COV] 100%% coverage achieved!
+# 
+# ╔══════════════════════════════════════════╗
+# ║     END-TO-END SCOREBOARD SUMMARY        ║
+# ╠══════════════════════════════════════════╣
+# ║  Write checks PASS  :   62               ║
+# ║  Write checks FAIL  :    0               ║
+# ║  Read  checks PASS  :   55               ║
+# ║  Read  checks FAIL  :    0               ║
+# ║  Error prop  PASS   :  120               ║
+# ║  Error prop  FAIL   :    0               ║
+# ╚══════════════════════════════════════════╝
+# UVM_INFO ../uvm/e2e_scoreboard.sv(235) @ 15665: uvm_test_top.env.scoreboard [E2E_SB] E2E SCOREBOARD: ALL CHECKS PASSED
+# UVM_INFO ../uvm/system_tests.sv(48) @ 15665: uvm_test_top [TEST] *** TEST PASSED ***
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   98
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [APB_AGENT]     1
+# [APB_MON]     1
+# [CMD_AGENT]     1
+# [CMD_DRV]     1
+# [CMD_MON]     1
+# [E2E_SB]     2
+# [Questa UVM]     2
+# [RNTST]     1
+# [SEQ]    76
+# [SYS_COV]     1
+# [SYS_ENV]     2
+# [TEST]     8
+# [TEST_DONE]     1
+# ** Note: $finish    : /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 15665 ns  Iteration: 61  Instance: /tb_top_system_uvm
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at /mnt/apps/public/COE/mg_apps/questa2026.1/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+# 0 ns
+# 16448 ns
